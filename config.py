@@ -18,11 +18,14 @@ _cid = cw_api_settings['COMPANYID']
 _pubk = cw_api_settings['PUBLICKEY']
 _privk = cw_api_settings['PRIVATEKEY']
 _authtoken = cw_api_settings['AUTHTOKEN']
+_clientId = cw_api_settings['CLIENTID'] if 'CLIENTID' in cw_api_settings else None
 
 if (_authtoken is not None) and (_authtoken != "xxxxx"):
     basic_auth = _authtoken
 
 else:
-
     basic_auth = base64.b64encode("{}+{}:{}".format(_cid, _pubk, _privk).encode('utf-8'))
     basic_auth = {'Authorization': 'Basic {}'.format(str(basic_auth, 'utf-8'))}
+
+if (_clientId is not None):
+    basic_auth['clientId'] = _clientId
