@@ -4,7 +4,7 @@ from .restapi import Client
 
 
 class CWController(Client):
-    def __init__(self):
+    def __init__(self, url=None, auth=None):
         # self.module_url comes from child
         # self.module comes from child
         # self._class comes from child
@@ -14,7 +14,9 @@ class CWController(Client):
         self.customfieldconditions = ''
         self.page = ''
         self.pageSize = ''
-        super().__init__('{}/{}'.format(API_URL, self.module_url))
+        self.API_URL = url if url is not None else API_URL
+        self.basic_auth = auth if auth is not None else basic_auth
+        super().__init__('{}/{}'.format(self.API_URL, self.module_url))
 
     def _format_user_params(self):
         user_params = {}
@@ -23,7 +25,7 @@ class CWController(Client):
         return user_params
 
     def _get(self):
-        json_results = getattr(self, self.module).get(user_headers=basic_auth,
+        json_results = getattr(self, self.module).get(user_headers=self.basic_auth,
                                                       user_params=self._format_user_params())
         for json in json_results:
             yield self._class(json)
@@ -36,25 +38,25 @@ class CWController(Client):
             print(repr(e))
             return False
         an_instance = self._class(
-            getattr(self, self.module).post(user_data=clean_dict, user_headers=basic_auth))
+            getattr(self, self.module).post(user_data=clean_dict, user_headers=self.basic_auth))
         return an_instance
 
     def _get_count(self):
-        json_results = getattr(self, self.module).get(the_id='count', user_headers=basic_auth,
+        json_results = getattr(self, self.module).get(the_id='count', user_headers=self.basic_auth,
                                                       user_params=self._format_user_params())
         count = json_results['count']
         return count
 
     def _get_by_id(self, item_id):
-        an_instance = self._class(getattr(self, self.module).get(the_id=item_id, user_headers=basic_auth))
+        an_instance = self._class(getattr(self, self.module).get(the_id=item_id, user_headers=self.basic_auth))
         return an_instance
 
     def _delete_by_id(self, item_id):
-        return getattr(self, self.module).delete(the_id=item_id, user_headers=basic_auth)
+        return getattr(self, self.module).delete(the_id=item_id, user_headers=self.basic_auth)
 
     def _replace(self, item_id):  # TODO: test
         an_instance = self._class(
-            getattr(self, self.module).put(the_id=item_id, user_data=self.clean_dict, user_headers=basic_auth))
+            getattr(self, self.module).put(the_id=item_id, user_data=self.clean_dict, user_headers=self.basic_auth))
         return an_instance
 
     def _update(self, item_id, key, value):
@@ -66,7 +68,7 @@ class CWController(Client):
         }]
         # call Patch method on API
         an_instance = self._class(getattr(self, self.module).patch(the_id=item_id, user_data=patch_operation,
-                                                                   user_headers=basic_auth))
+                                                                   user_headers=self.basic_auth))
         return an_instance
 
     def _merge(self, a_object, target_id):  # TODO: test
@@ -77,7 +79,7 @@ class CWController(Client):
         #     return False
         # clean_dict['toCompanyId'] = target_id
         # response = getattr(self, self.module).post(user_data=clean_dict, the_id='/'.join([str(a_object.id), 'merge']),
-        #                                            user_headers=basic_auth)
+        #                                            user_headers=self.basic_auth)
         # return response
         pass
 
@@ -89,6 +91,6 @@ class CWController(Client):
             print(repr(e))
             return False
         an_instance = self._class(
-            getattr(self, self.module).post(the_id=item_id, user_data=clean_dict, user_headers=basic_auth))
+            getattr(self, self.module).post(the_id=item_id, user_data=clean_dict, user_headers=self.basic_auth))
         return an_instance
 
