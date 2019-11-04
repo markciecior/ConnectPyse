@@ -4,11 +4,11 @@ from . import configuration
 
 
 class ConfigurationsAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'company'
         self.module = 'configurations'
         self._class = configuration.Configuration
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_configurations(self):
         return super()._get()

@@ -7,8 +7,8 @@ class AgreementsAPI(restapi.Client):
 
     module_url = 'finance'
 
-    def __init__(self, base_url):
-        super(AgreementsAPI, self).__init__('{}/{}'.format(base_url, AgreementsAPI.module_url))
+    def __init__(self, base_url, **kwargs):
+        super(AgreementsAPI, self).__init__('{}/{}'.format(base_url, AgreementsAPI.module_url), **kwargs)
 
     def get_agreements(self, user_headers, user_params=None):
         json_results = self.agreements.get(user_headers=user_headers, user_params=user_params)

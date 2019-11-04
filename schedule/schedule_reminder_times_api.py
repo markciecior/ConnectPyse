@@ -4,11 +4,11 @@ from connectpyse.schedule import schedule_reminder_time
 
 ''' not available until 2017.3 '''
 class ScheduleReminderTimesAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'schedule'
         self.module = 'reminderTimes'
         self._class = schedule_reminder_time.ScheduleReminderTime
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_schedule_reminder_times(self):
         return super()._get()

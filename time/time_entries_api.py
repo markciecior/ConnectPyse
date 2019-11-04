@@ -4,11 +4,11 @@ from . import time_entry
 
 
 class TimeEntriesAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'time'
         self.module = 'entries'
         self._class = time_entry.TimeEntry
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_time_entries(self):
         return super()._get()

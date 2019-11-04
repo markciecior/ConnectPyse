@@ -4,11 +4,11 @@ from connectpyse.system import callback
 
 
 class CallbacksAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'system'
         self.module = 'callbacks'
         self._class = callback.Callback
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_callbacks(self):
         return super()._get()

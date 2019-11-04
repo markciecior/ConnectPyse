@@ -4,11 +4,11 @@ from . import board
 
 
 class BoardsAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'service'
         self.module = 'boards'
         self._class = board.Board
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_boards(self):
         return super()._get()

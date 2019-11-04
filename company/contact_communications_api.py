@@ -4,11 +4,11 @@ from connectpyse.company import contact_communication
 
 
 class ContactCommunicationsAPI(CWController):
-    def __init__(self, contact_id):
+    def __init__(self, contact_id, **kwargs):
         self.module_url = 'company'
         self.module = 'contacts/{}/communications'.format(contact_id)
         self._class = contact_communication.ContactCommunication
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_contact_communications(self):
         return super()._get()

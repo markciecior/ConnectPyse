@@ -4,11 +4,11 @@ from connectpyse.system import member
 
 
 class MembersAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'system'
         self.module = 'members'
         self._class = member.Member
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_members(self):
         return super()._get()

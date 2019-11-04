@@ -4,11 +4,11 @@ from . import ticket
 
 
 class TicketsAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'service'
         self.module = 'tickets'
         self._class = ticket.Ticket
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_tickets(self):
         return super()._get()

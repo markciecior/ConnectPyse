@@ -4,11 +4,11 @@ from connectpyse.service import ticket_note
 
 
 class TicketNotesAPI(CWController):
-    def __init__(self, ticket_id):
+    def __init__(self, ticket_id, **kwargs):
         self.module_url = 'service'
         self.module = 'tickets/{}/notes'.format(ticket_id)
         self._class = ticket_note.TicketNote
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_ticket_notes(self):
         return super()._get()

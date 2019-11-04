@@ -4,11 +4,11 @@ from . import activity
 
 
 class ActivityAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'sales'
         self.module = 'activities'
         self._class = activity.Activity
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_activities(self):
         return super()._get()

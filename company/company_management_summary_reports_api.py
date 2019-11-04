@@ -1,14 +1,14 @@
 from ..cw_controller import CWController
 # Class for /company/companies/{id}/managementSummaryReports
-from ConnectPyse.company import company_management_summary_reports
+from ConnectPyse.company import company_management_summary_report
 
 
 class CompanyManagementSummaryReportsAPI(CWController):
-    def __init__(self, company_id):
+    def __init__(self, company_id, **kwargs):
         self.module_url = 'company'
         self.module = 'companies/{}/managementSummaryReports'.format(company_id)
-        self._class = company_management_summary_reports.CompanyManagementSummaryReport
-        super().__init__()  # instance gets passed to parent object
+        self._class = company_management_summary_report.CompanyManagementSummaryReport
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_managementSummaryReports(self):
         return super()._get()

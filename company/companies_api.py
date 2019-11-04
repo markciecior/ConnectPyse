@@ -4,11 +4,11 @@ from . import company
 
 
 class CompaniesAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'company'
         self.module = 'companies'
         self._class = company.Company
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_companies(self):
         return super()._get()

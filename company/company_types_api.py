@@ -4,11 +4,11 @@ from connectpyse.company import company_type
 
 
 class CompanyTypeAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'company'
         self.module = 'companies/types'
         self._class = company_type.CompanyType
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_company_types(self):
         return super()._get()

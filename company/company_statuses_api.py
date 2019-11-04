@@ -4,11 +4,11 @@ from connectpyse.company import company_status
 
 
 class CompanyStatusAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'company'
         self.module = 'companies/statuses'
         self._class = company_status.CompanyStatus
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_company_statuses(self):
         return super()._get()

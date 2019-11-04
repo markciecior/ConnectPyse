@@ -4,11 +4,11 @@ from . import opportunity
 
 
 class OpportunityAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'sales'
         self.module = 'opportunities'
         self._class = opportunity.Opportunity
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_opportunities(self):
         return super()._get()

@@ -4,11 +4,11 @@ from connectpyse.schedule import schedule_entry
 
 
 class ScheduleEntriesAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'schedule'
         self.module = 'entries'
         self._class = schedule_entry.ScheduleEntry
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_schedule_entries(self):
         return super()._get()

@@ -4,11 +4,11 @@ from . import shipment_method
 
 
 class ShipmentMethodsAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'procurement'
         self.module = 'shipmentmethods'
         self._class = shipment_method.ShipmentMethod
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_shipment_methods(self):
         return super()._get()

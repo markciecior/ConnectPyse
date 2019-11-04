@@ -4,11 +4,11 @@ from connectpyse.schedule import schedule_status
 
 
 class ScheduleStatusesAPI(CWController):
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.module_url = 'schedule'
         self.module = 'statuses'
         self._class = schedule_status.ScheduleStatus
-        super().__init__()  # instance gets passed to parent object
+        super().__init__(**kwargs)  # instance gets passed to parent object
 
     def get_schedule_statuses(self):
         return super()._get()
