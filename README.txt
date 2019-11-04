@@ -8,9 +8,10 @@ ConnectWise RESTful API Client
 Following the layout style of the official SDKs from CW team. Classes and their API counter part classes are under
 their appropriate sections. Import the API class(es) you want to leverage and the model classes are imported with them.
 
-## Setup
+## Setup (old way)
 1. Copy your_api.json to new my_api.json file and update with your API key and clientId details
--or-
+
+## Setup (new way)
 1. Create two variables which are passed to the constructor of the API classes.
 2. URL = 'https://connectwise.mycompany.com/v4_6_release/apis/3.0'
 3. AUTH = {'Authorization': 'Basic Wmdlasdkjfeklamwekf='}
