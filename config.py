@@ -30,6 +30,5 @@ try:
   if (_clientId is not None):
     basic_auth['clientId'] = _clientId
 except FileNotFoundError as e:
-  print('No my_api.json file, using code-defined settings instead')
   API_URL = ''
   basic_auth = {}
