@@ -14,7 +14,7 @@ their appropriate sections. Import the API class(es) you want to leverage and th
 ## Setup (new way)
 1. Create two variables which are passed to the constructor of the API classes.
 2. URL = 'https://connectwise.mycompany.com/v4_6_release/apis/3.0'
-3. AUTH = {'Authorization': 'Basic Wmdlasdkjfeklamwekf='}
+3. AUTH = {'Authorization': 'Basic Wmdlasdkjfeklamwekf=', 'clientId': 'myClientIdKey'}
 
 ## Usage
 1. Import the sections you'll be using
