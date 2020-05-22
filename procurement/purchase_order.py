@@ -1,7 +1,7 @@
 from ..cw_model import CWModel
 
 
-class PurchaseOrderLineItem(CWModel):
+class PurchaseOrder(CWModel):
 
     def __init__(self, json_dict=None):
         # With: id(Integer)

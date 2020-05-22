@@ -44,3 +44,10 @@ their appropriate sections. Import the API class(es) you want to leverage and th
     >>> allActivities = myAct.get_activities()
     >>> for oneAct in allActivities:
     >>>   print(oneAct.name)
+
+### For example to find all line items of a parent purchase order:
+
+    >>> from connectpyse.procurement import purchase_order_line_item_api
+    >>> lineItems = purchase_order_line_item_api.PurchaseOrderLineItemAPI(url=URL,auth=AUTH,parent=1919)
+    >>> myItems = lineItems.get_purchase_order_line_items()
+    

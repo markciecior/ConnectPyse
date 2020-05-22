@@ -14,7 +14,7 @@ their appropriate sections. Import the API class(es) you want to leverage and th
 ## Setup (new way)
 1. Create two variables which are passed to the constructor of the API classes.
 2. URL = 'https://connectwise.mycompany.com/v4_6_release/apis/3.0'
-3. AUTH = {'Authorization': 'Basic Wmdlasdkjfeklamwekf='}
+3. AUTH = {'Authorization': 'Basic Wmdlasdkjfeklamwekf=', 'clientId': 'myClientIdKey'}
 
 ## Usage
 1. Import the sections you'll be using
@@ -44,3 +44,10 @@ their appropriate sections. Import the API class(es) you want to leverage and th
     >>> allActivities = myAct.get_activities()
     >>> for oneAct in allActivities:
     >>>   print(oneAct.name)
+
+### For example to find all line items of a parent purchase order:
+
+    >>> from connectpyse.procurement import purchase_order_line_item_api
+    >>> lineItems = purchase_order_line_item_api.PurchaseOrderLineItemAPI(url=URL,auth=AUTH,parent=1919)
+    >>> myItems = lineItems.get_purchase_order_line_items()
+    
