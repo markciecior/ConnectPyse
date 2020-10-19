@@ -63,3 +63,9 @@ their appropriate sections. Import the API class(es) you want to leverage and th
     >>> lineItems = purchase_order_line_item_api.PurchaseOrderLineItemAPI(url=URL,auth=AUTH,parent=1919)
     >>> myItems = lineItems.get_purchase_order_line_items()
     
+### For example to update a ticket note:
+
+    >>> from connectpyse.service import ticket_notes_api, ticket_note 
+    >>> ticket_notes = ticket_notes_api.TicketNotesAPI(url=URL, auth=AUTH, ticket_id=TICKET_ID)
+    >>> note = ticket_note.TicketNote({"text":"testing ticket note update.. ", "detailDescriptionFlag": True})
+    >>> ticket_notes.create_ticket_note(note)
