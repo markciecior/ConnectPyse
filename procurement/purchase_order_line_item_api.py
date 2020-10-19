@@ -26,7 +26,7 @@ class PurchaseOrderLineItemAPI(CWController):
         super()._delete_by_id(purchase_order_line_item_id)
 
     def replace_purchase_order_line_item(self, purchase_order_line_item_id):
-        pass
+        return super()._replace(purchase_order_line_item_id)
 
     def update_purchase_order_line_item(self, purchase_order_line_item_id, key, value):
         return super()._update(purchase_order_line_item_id, key, value)

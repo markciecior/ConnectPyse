@@ -9,3 +9,9 @@ class CWModel(object):
         for k, v in self.__dict__.items():
             string = ''.join([string, '{}: {}\n'.format(k, v)])
         return string
+
+    def to_json(self):
+        d = {}
+        for k, v in self.__dict__.items():
+            d[k] = v
+        return d

@@ -23,3 +23,7 @@
 0.5.0.2
 ---
 - Updated Agreements API to use CWController class
+
+0.5.0.5
+---
+- Added Documents API to upload documents to Tickets, Opportunities, and Companies.

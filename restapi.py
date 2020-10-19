@@ -59,11 +59,13 @@ class Endpoint(object):
             url += "/".join([str(a) for a in args])
         return url
 
-    def _headers(self, others={}):
+    def _headers(self, others={}, setContentType=True):
         """Return the default headers and others as necessary"""
-        headers = {
-            'Content-Type': 'application/json'
-        }
+        headers = {}
+        if setContentType:
+            headers = {
+                'Content-Type': 'application/json'
+            }
 
         for p in others.keys():
             headers[p] = others[p]
@@ -83,26 +85,34 @@ class Endpoint(object):
             r = resp.text
         return r
 
-    def post(self, user_data, the_id=None, user_params={}, user_headers={}):
-
-        strjsondata = json.dumps(user_data, ensure_ascii=False)
+    def post(self, user_data, the_id=None, user_params={}, user_headers={}, files=None):
 
         if the_id:
             url = self._url(self.endpoint, the_id)
         else:
             url = self._url(self.endpoint)
 
-        resp = req.post(
-            url,
-            data=strjsondata,
-            headers=self._headers(user_headers),
-            params=self._params(user_params),
-            stream=False
-        )
+        if user_data:
+            strjsondata = json.dumps(user_data, ensure_ascii=False)
+            resp = req.post(
+                url,
+                data=strjsondata,
+                headers=self._headers(user_headers),
+                params=self._params(user_params),
+                stream=False
+            )
+        else:
+            resp = req.post(
+                url,
+                files=files,
+                headers=self._headers(user_headers, setContentType=False),
+                params=self._params(user_params),
+                stream=False
+            )
 
         if resp.status_code != 201:
             raise ApiError(
-                "GET",
+                "POST",
                 self.endpoint,
                 resp.status_code,
                 resp.text)
@@ -122,7 +132,7 @@ class Endpoint(object):
 
         if resp.status_code != 200:
             raise ApiError(
-                "GET",
+                "PUT",
                 self.endpoint,
                 resp.status_code,
                 resp.text)
@@ -142,7 +152,7 @@ class Endpoint(object):
 
         if resp.status_code != 200:
             raise ApiError(
-                "GET",
+                "PATCH",
                 self.endpoint,
                 resp.status_code,
                 resp.text)

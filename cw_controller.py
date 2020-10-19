@@ -41,6 +41,17 @@ class CWController(Client):
         an_instance = self._class(
             getattr(self, self.module).post(user_data=clean_dict, user_headers=self.basic_auth))
         return an_instance
+    
+    def _upload(self, objectType, objectId, title, filename, f):
+        multipart_form_data = {
+              'recordType': (None, objectType),
+              'recordId': (None, objectId),
+              'Title': (None, title),
+              'file': (filename, f)
+          }
+        an_instance = self._class(
+              getattr(self, self.module).post([], files=multipart_form_data, user_headers=self.basic_auth))
+        return an_instance
 
     def _get_count(self):
         json_results = getattr(self, self.module).get(the_id='count', user_headers=self.basic_auth,

@@ -21,6 +21,18 @@ their appropriate sections. Import the API class(es) you want to leverage and th
 2. Create an object from API Class
 3. Leverage member methods to access features
 
+### To upload a document to an opportunity:
+
+    >>> from connectpyse.system import document_api
+    >>> from connectpyse.sales import opportunity_api
+    >>> o = opportunity_api.OpportunityAPI(url=URL, auth=AUTH)
+    >>> d = document_api.DocumentAPI(url=URL, auth=AUTH)
+
+    >>> a_opp = o.get_opportunity_by_id(1234)
+    >>> f = os.path.join(os.path.curdir, 'local_info.txt')
+    >>> a_document = d.create_document(o, 'Newly Uploaded Document', 'server_info.txt', open(f, 'rb'))
+    >>> print(a_document.title)
+
 ### For example to get a Member's office phone number you would:
 
     >>> from connectpyse.system import members_api
