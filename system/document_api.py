@@ -13,8 +13,19 @@ class DocumentAPI(CWController):
         self._class = document.Document
         super().__init__(**kwargs)  # instance gets passed to parent object
 
-    def get_documents(self):
-        pass
+    def get_documents(self, a_object):
+        if isinstance(a_object, ticket.Ticket):
+          self.recordType = 'Ticket'
+          self.recordId = a_object.id
+        elif isinstance(a_object, opportunity.Opportunity):
+          self.recordType = 'Opportunity'
+          self.recordId = a_object.id
+        elif isinstance(a_object, company.Company):
+          self.recordType = 'Company'
+          self.recordId = a_object.id
+        else:
+          raise Exception('Document retrieval only supported for Tickets, Opportunities, and Companies')        
+        return super()._get()
 
     def create_document(self, a_object, a_title, a_filename, a_file):
         if isinstance(a_object, ticket.Ticket):

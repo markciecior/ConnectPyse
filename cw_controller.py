@@ -20,7 +20,7 @@ class CWController(Client):
 
     def _format_user_params(self):
         user_params = {}
-        for param in ['conditions', 'orderBy', 'childconditions', 'customfieldconditions', 'page', 'pageSize']:
+        for param in ['conditions', 'orderBy', 'childconditions', 'customfieldconditions', 'page', 'pageSize', 'recordId', 'recordType']:
             if getattr(self, param) != '':
               user_params[param] = getattr(self, param)
         return user_params

@@ -33,6 +33,19 @@ their appropriate sections. Import the API class(es) you want to leverage and th
     >>> a_document = d.create_document(o, 'Newly Uploaded Document', 'server_info.txt', open(f, 'rb'))
     >>> print(a_document.title)
 
+### To retrieve the documents attached to an opportunity:
+
+    >>> from connectpyse.system import document_api
+    >>> from connectpyse.sales import opportunity_api
+    >>> o = opportunity_api.OpportunityAPI(url=URL, auth=AUTH)
+    >>> d = document_api.DocumentAPI(url=URL, auth=AUTH)
+
+    >>> a_opp = o.get_opportunity_by_id(1234)
+    >>> myDocs = d.get_documents(a_pp)
+    >>> for doc in myDocs:
+    >>>   print(doc.title)
+    >>> 
+
 ### For example to get a Member's office phone number you would:
 
     >>> from connectpyse.system import members_api

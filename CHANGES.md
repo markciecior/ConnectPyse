@@ -27,3 +27,7 @@
 0.5.0.5
 ---
 - Added Documents API to upload documents to Tickets, Opportunities, and Companies.
+
+0.5.0.6
+---
+- Modified Documents API to retrieve documents from Tickets, Opportunities, and Companies.
