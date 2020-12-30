@@ -31,3 +31,8 @@
 0.5.0.6
 ---
 - Modified Documents API to retrieve documents from Tickets, Opportunities, and Companies.
+
+0.5.0.7
+---
+- Modified the OpportunityForecast API to correct the fields.
+- NOTE: The GET /sales/opportunities/{}/forecast endpoint doesn't return a list, it returns a dict.  The RestApi.get() method doesn't deal with this properly.  ConnectWise needs to fix their endpoint. 
