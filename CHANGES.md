@@ -35,4 +35,8 @@
 0.5.0.7
 ---
 - Modified the OpportunityForecast API to correct the fields.
-- NOTE: The GET /sales/opportunities/{}/forecast endpoint doesn't return a list, it returns a dict.  The RestApi.get() method doesn't deal with this properly.  ConnectWise needs to fix their endpoint. 
+- NOTE: The GET /sales/opportunities/{}/forecast endpoint doesn't return a list, it returns a dict.  The RestApi.get() method doesn't deal with this properly.  ConnectWise needs to fix their endpoint.
+
+0.5.0.8
+---
+- Added projects_api.py 
