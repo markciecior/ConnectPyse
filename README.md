@@ -21,6 +21,29 @@ their appropriate sections. Import the API class(es) you want to leverage and th
 2. Create an object from API Class
 3. Leverage member methods to access features
 
+### Paging
+
+    >>> from connectpyse.sales import opportunity_api
+    >>> o = opportunity_api.OpportunityAPI(url=URL, auth=AUTH)
+    >>> o.pageSize = 27
+    >>> o.get_opportunities()
+
+### Filtering
+
+    >>> from connectpyse.sales import opportunity_api
+    >>> o = opportunity_api.OpportunityAPI(url=URL, auth=AUTH)
+    >>> o.conditions = 'name="My Opportunity"'
+    >>> o.get_opportunities()
+
+### Filtering on sub-attributes (use '/')
+
+    >>> from connectpyse.sales import opportunity_api
+    >>> o = opportunity_api.OpportunityAPI(url=URL, auth=AUTH)
+    >>> o.conditions = 'company/id=19297'
+    >>> result = o.get_opportunities()
+    >>> for i in result:
+    >>>   print(i.company['id'])
+
 ### To upload a document to an opportunity:
 
     >>> from connectpyse.system import document_api
