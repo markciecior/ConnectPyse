@@ -40,3 +40,7 @@
 0.5.0.8
 ---
 - Added projects_api.py 
+
+0.5.0.9
+---
+- Added support for Time Sheets (from @wesgann)
