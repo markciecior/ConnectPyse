@@ -105,3 +105,10 @@ their appropriate sections. Import the API class(es) you want to leverage and th
     >>> ticket_notes = ticket_notes_api.TicketNotesAPI(url=URL, auth=AUTH, ticket_id=TICKET_ID)
     >>> note = ticket_note.TicketNote({"text":"testing ticket note update.. ", "detailDescriptionFlag": True})
     >>> ticket_notes.create_ticket_note(note)
+
+### For example to update multiple fields on a ticket:
+
+    >>> from connectpyse.service import tickets_api 
+    >>> api = tickets_api.TicketsAPI(url=URL, auth=AUTH)
+    >>> mychanges = {"summary": "update multiple keys", "budgetHours": .50}
+    >>> ticket = api.update_ticket_multiple_keys(ticketId, mychanges)

@@ -28,6 +28,9 @@ class TicketsAPI(CWController):
     def replace_ticket(self, ticket_id):
         pass
 
+    def update_ticket_multiple_keys(self, ticket_id, changes_dict):
+        return super()._update_multiple_keys(ticket_id, changes_dict)
+
     def update_ticket(self, ticket_id, key, value):
         return super()._update(ticket_id, key, value)
 
