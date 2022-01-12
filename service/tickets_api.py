@@ -28,7 +28,7 @@ class TicketsAPI(CWController):
     def replace_ticket(self, ticket_id):
         pass
 
-    def update_ticket(self, ticket_id, key, value):
+    def update_ticket(self, ticket_id, key, value, *args, **kwargs):
         return super()._update(ticket_id, key, value)
 
     def merge_ticket(self, a_ticket, target_ticket_id):

@@ -71,13 +71,21 @@ class CWController(Client):
             getattr(self, self.module).put(the_id=item_id, user_data=self.clean_dict, user_headers=self.basic_auth))
         return an_instance
 
-    def _update(self, item_id, key, value):
-        # build PatchOperation dict
-        patch_operation = [{
-            'op': 'replace',
-            'path': key,
-            'value': value
-        }]
+    def _update(self, item_id, key, value, value_dict=None):
+
+        if not value_dict:
+            # build PatchOperation dict
+            patch_operation = [{
+                'op': 'replace',
+                'path': key,
+                'value': value
+            }]
+        else:
+            patch_operation = []
+            for key, value in keys_dict.items():
+                patch_dict = {'op': 'replace', 'path': key, 'value': value}
+                patch_operation.append(patch_dict)
+
         # call Patch method on API
         an_instance = self._class(getattr(self, self.module).patch(the_id=item_id, user_data=patch_operation,
                                                                    user_headers=self.basic_auth))
