@@ -31,6 +31,9 @@ class ScheduleStatusesAPI(CWController):
     def update_schedule_status(self, status_id, key, value):
         return super()._update(status_id, key, value)
 
+    def update_schedule_status_multiple_keys(self, status_id, changes_dict):
+        return super()._update_multiple_keys(status_id, changes_dict)
+
     def merge_schedule_status(self, a_status, target_status_id):
         # return super()._merge(a_schedule_status, target_schedule_status_id)
         pass

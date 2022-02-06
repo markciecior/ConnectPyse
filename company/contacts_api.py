@@ -31,6 +31,9 @@ class ContactsAPI(CWController):
     def update_contact(self, contact_id, key, value):
         return super()._update(contact_id, key, value)
 
+    def update_contact_multiple_keys(self, contact_id, changes_dict):
+        return super()._update_multiple_keys(contact_id, changes_dict)
+
     def merge_contact(self, a_contact, target_contact_id):
         # return super()._merge(a_contact, target_contact_id)
         pass

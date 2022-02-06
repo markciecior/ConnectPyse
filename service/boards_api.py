@@ -31,6 +31,9 @@ class BoardsAPI(CWController):
     def update_board(self, entry_id, key, value):
         return super()._update(entry_id, key, value)
 
+    def update_board_multiple_keys(self, entry_id, changes_dict):
+        return super()._update_multiple_keys(entry_id, changes_dict)
+
     def merge_board(self, a_entry, target_entry_id):
         # return super()._merge(a_board, target_board_id)
         pass

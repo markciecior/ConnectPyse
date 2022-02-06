@@ -30,3 +30,6 @@ class TimeEntriesAPI(CWController):
 
     def update_time_entry(self, time_entry_id, key, value):
         return super()._update(time_entry_id, key, value)
+
+    def update_time_entry_multiple_keys(self, time_entry_id, changes_dict):
+        return super()._update_multiple_keys(time_entry_id, changes_dict)

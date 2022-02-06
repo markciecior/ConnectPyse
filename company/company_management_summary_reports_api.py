@@ -30,3 +30,6 @@ class CompanyManagementSummaryReportsAPI(CWController):
 
     def update_managementSummaryReport(self, managementSummaryReport_id, key, value):
         return super()._update(managementSummaryReport_id, key, value)
+
+    def update_managementSummaryReport_multiple_keys(self, managementSummaryReport_id, changes_dict):
+        return super()._update_multiple_keys(managementSummaryReport_id, changes_dict)

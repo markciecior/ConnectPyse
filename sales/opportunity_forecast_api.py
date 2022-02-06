@@ -30,3 +30,6 @@ class OpportunityForecastAPI(CWController):
 
     def update_opportunity_forecast(self, opportunity_forecast_id, key, value):
         return super()._update(opportunity_forecast_id, key, value)
+
+    def update_opportunity_forecast_multiple_keys(self, opportunity_forecast_id, changes_dict):
+        return super()._update_multiple_keys(opportunity_forecast_id, changes_dict)

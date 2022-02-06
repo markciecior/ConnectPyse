@@ -30,3 +30,6 @@ class ShipmentMethodsAPI(CWController):
 
     def update_shipment_method(self, shipment_method_id, key, value):
         return super()._update(shipment_method_id, key, value)
+
+    def update_shipment_method_multiple_keys(self, shipment_method_id, changes_dict):
+        return super()._update_multiple_keys(shipment_method_id, changes_dict)

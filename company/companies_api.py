@@ -31,6 +31,9 @@ class CompaniesAPI(CWController):
     def update_company(self, company_id, key, value):
         return super()._update(company_id, key, value)
 
+    def update_company_multiple_keys(self, company_id, changes_dict):
+        return super()._update_multiple_keys(company_id, changes_dict)
+
     def merge_company(self, a_company, target_company_id):
         # return super()._merge(a_company, target_company_id)
         pass

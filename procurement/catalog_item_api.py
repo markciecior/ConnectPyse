@@ -28,5 +28,8 @@ class CatalogItemAPI(CWController):
     def replace_catalog_item(self, catalog_item_id):
         pass
 
+    def update_catalog_multiple_keys(self, catalog_item_id, changes_dict):
+        return super()._update_multiple_keys(catalog_item_id, changes_dict)
+
     def update_catalog_item(self, catalog_item_id, key, value):
         return super()._update(catalog_item_id, key, value)

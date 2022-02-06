@@ -30,3 +30,6 @@ class PurchaseOrderStatusAPI(CWController):
 
     def update_purchase_order_status(self, purchase_order_status_id, key, value):
         return super()._update(purchase_order_status_id, key, value)
+
+    def update_purchase_order_multiple_keys(self, purchase_order_status_id, changes_dict):
+        return super()._update_multiple_keys(purchase_order_status_id, changes_dict)

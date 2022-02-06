@@ -32,6 +32,9 @@ class AgreementsAPI(CWController):
     def update_agreement(self, agreement_id, key, value):
         return super()._update(agreement_id, key, value)
 
+    def update_agreement_multiple_keys(self, agreement_id, changes_dict):
+        return super()._update_multiple_keys(agreement_id, changes_dict)
+
     def merge_agreement(self, agreement_id):
         pass
 

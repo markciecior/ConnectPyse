@@ -31,3 +31,6 @@ class ConfigurationsAPI(CWController):
     def update_configuration(self, configuration_id, key, value):
         return super()._update(configuration_id, key, value)
 
+    def update_configuration_multiple_keys(self, configuration_id, changes_dict):
+        return super()._update_multiple_keys(configuration_id, changes_dict)
+

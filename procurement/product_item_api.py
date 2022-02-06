@@ -30,3 +30,6 @@ class ProductItemAPI(CWController):
 
     def update_product_item(self, product_item_id, key, value):
         return super()._update(product_item_id, key, value)
+
+    def update_product_item_multiple_keys(self, product_item_id, changes_dict):
+        return super()._update_multiple_keys(product_item_id, changes_dict)
