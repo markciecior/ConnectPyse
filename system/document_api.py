@@ -56,7 +56,7 @@ class DocumentAPI(CWController):
     def update_document(self, type_id, key, value):
         pass
 
-    def update_document_multiple_keys(self, entry_id, changes_dict):
+    def update_document_multiple_keys(self, type_id, changes_dict):
         pass
 
     def merge_document(self, a_type, target_type_id):
