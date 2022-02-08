@@ -31,6 +31,9 @@ class TicketNotesAPI(CWController):
     def update_ticket_note(self, ticket_id, key, value):
         return super()._update(ticket_id, key, value)
 
+    def update_ticket_note_multiple_keys(self, ticket_id, changes_dict):
+        return super()._update_multiple_keys(ticket_id, changes_dict)
+
     def merge_ticket_note(self, a_ticket_note, target_ticket_note_id):
         # return super()._merge(a_ticket_note, target_ticket_note_id)
         pass

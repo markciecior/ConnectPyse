@@ -31,6 +31,9 @@ class ActivityAPI(CWController):
     def update_activity(self, type_id, key, value):
         return super()._update(type_id, key, value)
 
+    def update_activity_multiple_keys(self, type_id, changes_dict):
+        return super()._update_multiple_keys(type_id, changes_dict)
+
     def merge_activity(self, a_type, target_type_id):
         # return super()._merge(a_type, target_type_id)
         pass

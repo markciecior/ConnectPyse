@@ -31,6 +31,9 @@ class ProjectsAPI(CWController):
     def update_project(self, project_id, key, value):
         return super()._update(project_id, key, value)
 
+    def update_project_multiple_keys(self, project_id, changes_dict):
+        return super()._update_multiple_keys(project_id, changes_dict)
+
     def merge_project(self, a_project, target_project_id):
         # return super()._merge(a_project, target_project_id)
         pass

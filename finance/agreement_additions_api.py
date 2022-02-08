@@ -31,3 +31,6 @@ class AgreementAdditionsAPI(CWController):
 
     def update_agreement_addition(self, agreement_addition_id, key, value):
         return super()._update(agreement_addition_id, key, value)
+
+    def update_agreement_addition_multiple_keys(self, agreement_addition_id, changes_dict):
+        return super()._update_multiple_keys(agreement_addition_id, changes_dict)

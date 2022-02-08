@@ -30,3 +30,6 @@ class ManufacturerAPI(CWController):
 
     def update_manufacturer(self, manufacturer_id, key, value):
         return super()._update(manufacturer_id, key, value)
+
+    def update_manufacturer_multiple_keys(self, manufacturer_id, changes_dict):
+        return super()._update_multiple_keys(manufacturer_id, changes_dict)

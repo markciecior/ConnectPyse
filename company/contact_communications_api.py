@@ -30,3 +30,6 @@ class ContactCommunicationsAPI(CWController):
 
     def update_contact_communication(self, item_id, key, value):
         return super()._update(item_id, key, value)
+
+    def update_contact_communication_multiple_keys(self, item_id, changes_dict):
+        return super()._update_multiple_keys(item_id, changes_dict)

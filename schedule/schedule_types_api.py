@@ -31,6 +31,9 @@ class ScheduleTypesAPI(CWController):
     def update_schedule_type(self, type_id, key, value):
         return super()._update(type_id, key, value)
 
+    def update_schedule_type_multiple_keys(self, type_id, changes_dict):
+        return super()._update_multiple_keys(type_id, changes_dict)
+
     def merge_schedule_type(self, a_type, target_type_id):
         # return super()._merge(a_schedule_type, target_schedule_type_id)
         pass

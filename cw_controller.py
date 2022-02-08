@@ -83,6 +83,20 @@ class CWController(Client):
                                                                    user_headers=self.basic_auth))
         return an_instance
 
+    def _update_multiple_keys(self, item_id, keys_dict):
+        # build PatchOperation dict
+        patch_operation = []
+        for key, value in keys_dict.items():
+            patch_dict = {'op': 'replace', 'path': key, 'value': value}
+            patch_operation.append(patch_dict)
+
+        # call Patch method on API
+        an_instance = self._class(getattr(self, self.module).patch(the_id=item_id, user_data=patch_operation,
+                                                                   user_headers=self.basic_auth))
+        return an_instance
+
+
+
     def _merge(self, a_object, target_id):  # TODO: test
         # try:
         #     clean_dict = {k: v for k, v in a_object.__dict__.items() if v}

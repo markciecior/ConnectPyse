@@ -30,3 +30,6 @@ class PurchaseOrderLineItemAPI(CWController):
 
     def update_purchase_order_line_item(self, purchase_order_line_item_id, key, value):
         return super()._update(purchase_order_line_item_id, key, value)
+
+    def update_purchase_order_line_item_multiple_keys(self, purchase_order_line_item_id, changes_dict):
+        return super()._update_multiple_keys(purchase_order_line_item_id, changes_dict)

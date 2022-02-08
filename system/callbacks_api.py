@@ -31,6 +31,9 @@ class CallbacksAPI(CWController):
     def update_callback(self, entry_id, key, value):
         return super()._update(entry_id, key, value)
 
+    def update_callback_multiple_keys(self, entry_id, changes_dict):
+        return super()._update_multiple_keys(entry_id, changes_dict)
+
     def merge_callback(self, a_entry, target_entry_id):
         # return super()._merge(a_callback, target_callback_id)
         pass

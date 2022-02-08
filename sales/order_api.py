@@ -30,3 +30,6 @@ class OrderAPI(CWController):
 
     def update_order(self, order_id, key, value):
         return super()._update(order_id, key, value)
+
+    def update_order_multiple_keys(self, order_id, changes_dict):
+        return super()._update_multiple_keys(order_id, changes_dict)

@@ -31,6 +31,9 @@ class CompanyTypeAPI(CWController):
     def update_company_type(self, company_type_id, key, value):
         return super()._update(company_type_id, key, value)
 
+    def update_company_type_multiple_keys(self, company_type_id, changes_dict):
+        return super()._update_multiple_keys(company_type_id, changes_dict)
+
     def merge_company_type(self, a_company_type, target_company_type_id):
         # return super()._merge(a_company_type, target_company_type_id)
         pass

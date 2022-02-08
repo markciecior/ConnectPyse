@@ -31,6 +31,9 @@ class MembersAPI(CWController):
     def update_member(self, type_id, key, value):
         return super()._update(type_id, key, value)
 
+    def update_member_multiple_keys(self, type_id, changes_dict):
+        return super()._update_multiple_keys(type_id, changes_dict)
+
     def merge_member(self, a_type, target_type_id):
         # return super()._merge(a_type, target_type_id)
         pass
