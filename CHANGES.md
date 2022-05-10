@@ -44,3 +44,7 @@
 0.5.0.9
 ---
 - Added support for Time Sheets (from @wesgann)
+
+0.6.0.2
+---
+- Added fix for deleting objects (from @billyzoelers)
