@@ -48,3 +48,7 @@
 0.6.0.2
 ---
 - Added fix for deleting objects (from @billyzoelers)
+
+0.6.0.3
+---
+- Added support for Company Teams
