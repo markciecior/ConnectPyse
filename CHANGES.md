@@ -52,3 +52,7 @@
 0.6.0.3
 ---
 - Added support for Company Teams
+
+0.6.0.4
+---
+- Added support for Configuration Types
