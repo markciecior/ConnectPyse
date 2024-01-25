@@ -34,7 +34,7 @@ class CWController(Client):
     def _create(self, a_object):
         # Ideally take the_item and submit that as the user_data
         try:
-            clean_dict = {k: v for k, v in a_object.__dict__.items() if v}
+            clean_dict = {k: v for k, v in a_object.__dict__.items() if v is not None}
         except Exception as e:
             print(repr(e))
             return False
