@@ -93,7 +93,7 @@ class Endpoint(object):
             url = self._url(self.endpoint)
 
         if user_data:
-            strjsondata = json.dumps(user_data, ensure_ascii=False)
+            strjsondata = json.dumps(user_data, ensure_ascii=True)
             resp = req.post(
                 url,
                 data=strjsondata,
@@ -121,7 +121,7 @@ class Endpoint(object):
 
     def put(self, the_id, user_data, user_params={}, user_headers={}):
 
-        strjsondata = json.dumps(user_data, ensure_ascii=False)
+        strjsondata = json.dumps(user_data, ensure_ascii=True)
 
         resp = req.put(
             self._url(self.endpoint, the_id),
@@ -141,7 +141,7 @@ class Endpoint(object):
 
     def patch(self, the_id, user_data, user_params={}, user_headers={}):
 
-        strjsondata = json.dumps(user_data, ensure_ascii=False)
+        strjsondata = json.dumps(user_data, ensure_ascii=True)
 
         resp = req.patch(
             self._url(self.endpoint, the_id),
