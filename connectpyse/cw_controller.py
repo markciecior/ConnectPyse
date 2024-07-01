@@ -1,10 +1,10 @@
 # Parent class for module controller classes
-from .config import API_URL, basic_auth
+from .config import API_URL, basic_auth, ENSURE_ASCII
 from .restapi import Client
 
 
 class CWController(Client):
-    def __init__(self, url=None, auth=None):
+    def __init__(self, url=None, auth=None, ensure_ascii=None):
         # self.module_url comes from child
         # self.module comes from child
         # self._class comes from child
@@ -16,6 +16,7 @@ class CWController(Client):
         self.pageSize = ''
         self.API_URL = url if url is not None else API_URL
         self.basic_auth = auth if auth is not None else basic_auth
+        self.ensure_ascii = ensure_ascii if ensure_ascii is not None else ENSURE_ASCII
         super().__init__('{}/{}'.format(self.API_URL, self.module_url))
 
     def _format_user_params(self):
