@@ -43,15 +43,17 @@ class Client(object):
         except AttributeError:
             return Endpoint(
                 self.root_path,
-                attr
+                attr,
+                ensure_ascii=self.ensure_ascii
             )
 
 
 class Endpoint(object):
 
-    def __init__(self, root_path, endpoint):
+    def __init__(self, root_path, endpoint, ensure_ascii):
         self.endpoint = endpoint
         self.root_path = root_path
+        self.ensure_ascii = ensure_ascii
 
     def _url(self, path, *args):
         url = "{}/{}/".format(self.root_path, path)
@@ -93,7 +95,7 @@ class Endpoint(object):
             url = self._url(self.endpoint)
 
         if user_data:
-            strjsondata = json.dumps(user_data, ensure_ascii=True)
+            strjsondata = json.dumps(user_data, ensure_ascii=self.ensure_ascii)
             resp = req.post(
                 url,
                 data=strjsondata,
@@ -121,7 +123,7 @@ class Endpoint(object):
 
     def put(self, the_id, user_data, user_params={}, user_headers={}):
 
-        strjsondata = json.dumps(user_data, ensure_ascii=True)
+        strjsondata = json.dumps(user_data, ensure_ascii=self.ensure_ascii)
 
         resp = req.put(
             self._url(self.endpoint, the_id),
@@ -141,7 +143,7 @@ class Endpoint(object):
 
     def patch(self, the_id, user_data, user_params={}, user_headers={}):
 
-        strjsondata = json.dumps(user_data, ensure_ascii=True)
+        strjsondata = json.dumps(user_data, ensure_ascii=self.ensure_ascii)
 
         resp = req.patch(
             self._url(self.endpoint, the_id),

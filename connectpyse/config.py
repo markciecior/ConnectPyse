@@ -14,6 +14,7 @@ try:
       cw_api_settings = json.load(fin)
   
   API_URL = cw_api_settings['API_URL']
+  ENSURE_ASCII = cw_api_settings['ENSURE_ASCII'] if 'ENSURE_ASCII' in cw_api_settings else False
   _cid = cw_api_settings['COMPANYID']
   _pubk = cw_api_settings['PUBLICKEY']
   _privk = cw_api_settings['PRIVATEKEY']
@@ -31,4 +32,5 @@ try:
     basic_auth['clientId'] = _clientId
 except FileNotFoundError as e:
   API_URL = ''
+  ENSURE_ASCII = False
   basic_auth = {}
