@@ -56,3 +56,7 @@
 0.6.0.4
 ---
 - Added support for Configuration Types
+
+0.7
+---
+- [0xliam](https://github.com/0xliam) added an optional ```ensure_ascii``` keyword argument

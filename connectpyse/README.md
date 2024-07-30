@@ -112,3 +112,8 @@ their appropriate sections. Import the API class(es) you want to leverage and th
     >>> api = tickets_api.TicketsAPI(url=URL, auth=AUTH)
     >>> mychanges = {"summary": "update multiple keys", "budgetHours": .50}
     >>> ticket = api.update_ticket_multiple_keys(ticketId, mychanges)
+
+### Tell the json module to use ensure_ascii=True:
+
+    >>> from connectpyse.sales import opportunity_api
+    >>> o = opportunity_api.OpportunityAPI(url=URL, auth=AUTH, ensure_ascii=True)
