@@ -60,3 +60,7 @@
 0.7
 ---
 - [0xliam](https://github.com/0xliam) added an optional ```ensure_ascii``` keyword argument
+
+0.7.1
+---
+- Added support for Opportunity Teams
