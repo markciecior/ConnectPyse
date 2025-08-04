@@ -5,7 +5,7 @@ with open('README.md', 'r') as f:
     long_description = f.read()
 
 setup(name='connectpyse',
-      version='0.7.1',
+      version='0.7.2',
       description='A ConnectWise API tool for the rest of us.',
       long_description=long_description,
       long_description_content_type="text/markdown",
