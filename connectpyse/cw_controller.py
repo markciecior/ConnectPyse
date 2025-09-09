@@ -14,6 +14,7 @@ class CWController(Client):
         self.customfieldconditions = ''
         self.page = ''
         self.pageSize = ''
+        self.fields = ''
         self.API_URL = url if url is not None else API_URL
         self.basic_auth = auth if auth is not None else basic_auth
         self.ensure_ascii = ensure_ascii if ensure_ascii is not None else ENSURE_ASCII
@@ -21,7 +22,7 @@ class CWController(Client):
 
     def _format_user_params(self):
         user_params = {}
-        for param in ['conditions', 'orderBy', 'childconditions', 'customfieldconditions', 'page', 'pageSize', 'recordId', 'recordType']:
+        for param in ['conditions', 'orderBy', 'childconditions', 'customfieldconditions', 'page', 'pageSize', 'recordId', 'recordType', 'fields']:
             if getattr(self, param) != '':
               user_params[param] = getattr(self, param)
         return user_params
