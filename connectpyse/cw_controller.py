@@ -1,4 +1,5 @@
 # Parent class for module controller classes
+from io import BytesIO
 from .config import API_URL, basic_auth, ENSURE_ASCII
 from .restapi import Client
 
@@ -31,6 +32,11 @@ class CWController(Client):
                                                       user_params=self._format_user_params())
         for json in json_results:
             yield self._class(json)
+
+    def _get_bytes(self):
+        results = getattr(self, self.module).get(user_headers=self.basic_auth,
+                                                      user_params=self._format_user_params())
+        return self._class(results.content)
 
     def _create(self, a_object):
         # Ideally take the_item and submit that as the user_data
