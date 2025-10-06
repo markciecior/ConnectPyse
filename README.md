@@ -69,6 +69,23 @@ their appropriate sections. Import the API class(es) you want to leverage and th
     >>>   print(doc.title)
     >>> 
 
+### To download the documents attached to an opportunity:
+
+    >>> from connectpyse.system import document_api
+    >>> from connectpyse.system import document_download_api
+    >>> from connectpyse.sales import opportunity_api
+    >>> o = opportunity_api.OpportunityAPI(url=URL, auth=AUTH)
+    >>> d = document_api.DocumentAPI(url=URL, auth=AUTH)
+
+    >>> a_opp = o.get_opportunity_by_id(1234)
+    >>> myDocs = d.get_documents(a_pp)
+    >>> for doc in myDocs:
+    >>>   doc_download = document_download_api.DocumentDownloadAPI(doc.id, url=URL, auth=AUTH)
+    >>>   ## Option 1: Get the BytesIO object
+    >>>   bytes = doc_download.download_document()
+    >>>   ## Option 2: Download directly to disk
+    >>>   doc_download.save_to_file("/path/to/file.txt")
+
 ### For example to get a Member's office phone number you would:
 
     >>> from connectpyse.system import members_api

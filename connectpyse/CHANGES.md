@@ -69,6 +69,6 @@
 ---
 - Added support for gathering object _info
 
-0.7.5
+0.7.6
 ---
 - Added support for Document Download
