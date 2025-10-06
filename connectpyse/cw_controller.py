@@ -35,9 +35,9 @@ class CWController(Client):
             yield self._class(json)
 
     def _get_bytes(self):
-        results = getattr(self, self.module).get(user_headers=self.basic_auth,
+        results_str = getattr(self, self.module).get(user_headers=self.basic_auth,
                                                       user_params=self._format_user_params())
-        return self._class(results.content)
+        return self._class({"bytes": BytesIO(results_str.encode("iso-8859-1"))})
 
     def _create(self, a_object):
         # Ideally take the_item and submit that as the user_data

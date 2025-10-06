@@ -12,3 +12,11 @@ class DocumentDownloadAPI(CWController):
 
     def download_document(self):
         return super()._get_bytes()
+
+    def save_to_file(self, path=""):
+        document = self.download_document()
+        if path == "":
+            raise ValueError("A valid path is required to save the document.")
+        with open(path, 'wb') as f:
+            f.write(document.bytes.getvalue())
+        return True
