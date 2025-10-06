@@ -10,5 +10,5 @@ class DocumentDownloadAPI(CWController):
         self._class = document_download.DocumentDownload
         super().__init__(**kwargs)  # instance gets passed to parent object
 
-    def get_opportunity_team(self):
+    def download_document(self):
         return super()._get_bytes()
