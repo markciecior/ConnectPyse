@@ -64,3 +64,11 @@
 0.7.1
 ---
 - Added support for Opportunity Teams
+
+0.7.2
+---
+- Added support for gathering object _info
+
+0.7.5
+---
+- Added support for Document Download
