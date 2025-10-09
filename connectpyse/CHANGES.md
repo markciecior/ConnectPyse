@@ -72,3 +72,7 @@
 0.7.6
 ---
 - Added support for Document Download
+
+0.8.0
+---
+- Moved to pyproject.toml
