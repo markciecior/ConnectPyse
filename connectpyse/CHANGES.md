@@ -76,3 +76,7 @@
 0.8.0
 ---
 - Moved to pyproject.toml
+
+0.8.1
+---
+- Added ProjectTicket and ProjectTicketsAPI endpoints
